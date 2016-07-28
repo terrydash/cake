@@ -6,7 +6,6 @@ using System;
 using Cake.Common.Tests.Fixtures.Tools.WiX;
 using Cake.Common.Tools.WiX.Heat;
 using Cake.Core;
-using Cake.Core.IO;
 using Cake.Testing;
 using Cake.Testing.Xunit;
 using Xunit;

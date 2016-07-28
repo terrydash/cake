@@ -31,7 +31,7 @@ namespace Cake.Common.Tools.WiX.Heat
         {
             if (environment == null)
             {
-                throw new ArgumentNullException("environment");
+                throw new ArgumentNullException(nameof(environment));
             }
 
             _environment = environment;
@@ -47,17 +47,17 @@ namespace Cake.Common.Tools.WiX.Heat
         {
             if (directoryPath == null)
             {
-                throw new ArgumentNullException("directoryPath");
+                throw new ArgumentNullException(nameof(directoryPath));
             }
 
             if (outputFile == null)
             {
-                throw new ArgumentNullException("outputFile");
+                throw new ArgumentNullException(nameof(outputFile));
             }
 
             if (settings == null)
             {
-                throw new ArgumentNullException("settings");
+                throw new ArgumentNullException(nameof(settings));
             }
 
             Run(settings, GetArguments(directoryPath, outputFile, settings));
@@ -73,23 +73,23 @@ namespace Cake.Common.Tools.WiX.Heat
         {
             if (objectFiles == null)
             {
-                throw new ArgumentNullException("objectFiles");
+                throw new ArgumentNullException(nameof(objectFiles));
             }
 
             if (outputFile == null)
             {
-                throw new ArgumentNullException("outputFile");
+                throw new ArgumentNullException(nameof(outputFile));
             }
 
             if (settings == null)
             {
-                throw new ArgumentNullException("settings");
+                throw new ArgumentNullException(nameof(settings));
             }
 
             var objectFilesArray = objectFiles as FilePath[] ?? objectFiles.ToArray();
             if (!objectFilesArray.Any())
             {
-                throw new ArgumentException("No object files provided.", "objectFiles");
+                throw new ArgumentException("No object files provided.", nameof(objectFiles));
             }
 
             Run(settings, GetArguments(objectFilesArray, outputFile, settings));
@@ -105,17 +105,17 @@ namespace Cake.Common.Tools.WiX.Heat
         {
             if (harvestTarget == null)
             {
-                throw new ArgumentNullException("harvestTarget");
+                throw new ArgumentNullException(nameof(harvestTarget));
             }
 
             if (outputFile == null)
             {
-                throw new ArgumentNullException("outputFile");
+                throw new ArgumentNullException(nameof(outputFile));
             }
 
             if (settings == null)
             {
-                throw new ArgumentNullException("settings");
+                throw new ArgumentNullException(nameof(settings));
             }
 
             Run(settings, GetArguments(harvestTarget, outputFile, settings));
@@ -139,7 +139,7 @@ namespace Cake.Common.Tools.WiX.Heat
                         builder.Append("reg");
                         break;
                     default:
-                        throw new ArgumentException("Incorrect harvest type for input.", "objectFiles");
+                        throw new ArgumentException("Incorrect harvest type for input.", nameof(objectFiles));
                 }
             }
 
@@ -168,7 +168,7 @@ namespace Cake.Common.Tools.WiX.Heat
                         builder.Append("dir");
                         break;
                     default:
-                        throw new ArgumentException("Incorrect harvest type for input.", "directoryPath");
+                        throw new ArgumentException("Incorrect harvest type for input.", nameof(directoryPath));
                 }
             }
 
@@ -196,7 +196,7 @@ namespace Cake.Common.Tools.WiX.Heat
                         builder.Append("website");
                         break;
                     default:
-                        throw new ArgumentException("Incorrect harvest type for input.", "harvestTarget");
+                        throw new ArgumentException("Incorrect harvest type for input.", nameof(harvestTarget));
                 }
             }
 
